@@ -3,7 +3,7 @@ class Captain < ActiveRecord::Base
 
   def self.catamaran_operators
      includes(boats: :classifications).where(classifications: {name: "Catamaran"})
-   end 
+   end
 
   def self.sailors
     includes(boats: :classifications).where(classifications: {name: "Sailboat")
@@ -18,5 +18,5 @@ class Captain < ActiveRecord::Base
 
   def self.non_sailors
     where.not("id IN (?)", self.sailors.pluck(:id))
-  end 
+  end
 end
