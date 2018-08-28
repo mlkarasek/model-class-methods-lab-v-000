@@ -4,9 +4,9 @@ class Classification < ActiveRecord::Base
 
   def self.my_all
     Classification.all
-  end 
+  end
 
-  def self.longest 
+  def self.longest
     Boat.order("length DESC").first.classifications
   end 
 end
